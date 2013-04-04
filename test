@@ -1,0 +1,16 @@
++<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
++<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" style = 'background-color: green'>
++<head>
++  <meta http-equiv = 'content-type' content = 'text/html charset = utf-8' >
++</head>
++<form>
++<fieldset style = 'text-align:center; background-color: white'>
++<h1>Đăng Nhập<h1>
++
++<p>Ten: <input type = 'text' name = 'UserName' size = '30' maxlength = '30'></p>
++<p>Password: <input type = 'password' name = 'Pass' size = '24' maxlength = '30'></p>
++<input type = 'submit' name = 'submit' value = 'Đăng Nhập' onsubmit = ''>
++<input type = 'reset' name = 'reset' value = 'Đăng Kí' onclick = ''>
++</fieldset>
++</form>
++</html>
