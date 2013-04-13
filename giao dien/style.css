@@ -1,0 +1,248 @@
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+	margin: 0; padding: 0; border: 0;
+}
+
+body {
+	background: #313145; /* url(images/img.jpg);*/
+}
+#demo {
+	width: 100%;
+	margin: 0 auto;
+}
+#mtopleft {
+	display: block;
+	width: 210px; height: 120px;
+	background-color: #000;
+	float: left;
+	margin: 20px 0px 0px 0px;
+}
+nav ul {
+	list-style: none; overflow: hidden; position: relative;
+}
+nav ul li {
+	float: left; margin: 20px 0px 0px 20px;
+}
+nav ul li a {
+	display: block; width: 120px; height: 120px;
+	background-image: url(images/one/icons.png); background-repeat: no-repeat;
+}
+/*
+nav ul li:nth-child(odd)
+{
+background:#ff0000;
+}
+nav ul li:nth-child(even)
+{
+background:#0000ff;
+}
+*/
+nav ul li:nth-child(2) a {
+	background-color: #5bb2fc;
+	background-position: 28px 28px;
+}
+nav ul li:nth-child(3) a {
+	background-color: #58ebd3;
+	background-position: 28px -96px;
+}
+nav ul li:nth-child(4) a {
+	background-color: #ffa659;
+	background-position: 28px -222px;
+}
+nav ul li:nth-child(5) a {
+	background-color: #ff7a85;
+	background-position: 28px -342px;
+}
+
+nav ul li a span {
+	font: 50px "Dosis", sans-serif; text-transform: uppercase; 
+	position: absolute; left: 0px; top: 39px;
+	display: none;
+}
+
+/*
+position: static; 	Thành phần sẽ nằm theo thứ tự trong văn bản, đây là dạng mặc định.
+position: relative; 	Định vị trí tuyệt đối cho thành phần.
+position: absolute; 	Định vị trí tuyệt đối cho thành phần theo thành phần bao ngoài (thành phần định vị trí tương đối position: relative;) hoặc theo cửa sổ trình duyệt.
+position: fixed; 	Định vị trí tương đối cho thành phần theo cửa sổ trình duyệt.
+position: inherit; 	Xác định thừa hưởng thuộc tính từ thành phần cha (thành phần bao ngoài).
+*/
+nav ul li a:hover span {
+	display: block;
+}
+/*:hover; là click vào mới thực hiện cái gì đó*/
+				
+nav ul li:nth-child(2) a span {
+	color: #5bb2fc;
+}
+nav ul li:nth-child(3) a span {
+	color: #58ebd3;
+}
+nav ul li:nth-child(4) a span {
+	color: #ffa659;
+}
+
+nav ul li:nth-child(5) a span {
+	color: #ff7a85;
+}
+
+#mybody{
+	display: block;
+	width: 100%;
+	min-height: 800px;
+	/*background: #191919; /* url(images/img.jpg);*/
+	float: left;
+	margin: 20px 0px 0px 0px;
+}
+a{
+	display: block;
+}
+a img{
+	height: 240px;
+	width: 240px;
+}
+#anchu{
+	font: 40px "Dosis", sans-serif; text-transform: uppercase; 
+	position: absolute; left: 10px; top: 10px;
+	display: none;
+	color: #5bb2fc;
+}
+/*.bonsanpham{
+	background-color: #272737;
+	max-width: 560px;
+	min-height: 560px;
+	padding: 20px 20px 0 0;
+}
+*/
+.sanpham{
+	position: relative;
+	float: left;
+	width: 240px;
+	height: 240px;
+	background-color: #272737;
+	margin: 0px 0px 20px 20px;
+	padding: 10px;
+}
+a:hover #anchu{
+	display: block;
+}
+.danhmuc{
+	position: relative;
+	float: left;
+	width: 210px;
+	height: 820px;
+	background-color: #313145;
+	color: #000;
+}
+.danhmuccon{
+	margin-bottom: 20px;
+}
+.danhmuccon a {
+	text-decoration: none;
+	display: block; width: 210px; height: 120px;
+	background-repeat: no-repeat;
+}
+.danhmuccon:nth-child(1) a{
+	background-color: #5bb2fc;
+	background-position: 89px 46px;
+	background-image: url(images/one/camera.png);
+}
+.danhmuccon:nth-child(2) a{
+	background-color: #5bb2fc;
+	background-position: 89px 46px;
+	background-image: url(images/one/tv.png);
+}
+.danhmuccon:nth-child(3) a{
+	background-color: #5bb2fc;
+	background-position: 97px 46px;
+	background-image: url(images/one/icon-iphone.png);
+}
+.danhmuccon:nth-child(4) a{
+	background-color: #5bb2fc;
+	background-position: 97px 46px;
+	background-image: url(images/one/icon-iphone.png);
+}
+.danhmuccon:nth-child(5) a{
+	background-color: #5bb2fc;
+	background-position: 97px 46px;
+	background-image: url(images/one/icon-iphone.png);
+}
+.danhmuccon:nth-child(6) a{
+	background-color: #5bb2fc;
+	background-position: 97px 46px;
+	background-image: url(images/one/icon-iphone.png);
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Dosis Regular'), local('Dosis-Regular'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/xIAtSaglM8LZOYdGmG1JqQ.woff) format('woff');
+}
+/*
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+	margin: 0; padding: 0; border: 0;
+}
+
+body {
+	background: #313145;
+}
+
+#demo {
+	width: 800px; margin: 250px auto;
+}
+
+nav ul {
+	list-style: none; overflow: hidden; position: relative;
+}
+nav ul li {
+	float: left; margin: 0 20px 0 0;
+}
+nav ul li a {
+	display: block; width: 120px; height: 120px;
+	background-image: url(images/icons.png); background-repeat: no-repeat;
+}
+nav ul li:nth-child(1) a {
+	background-color: #5bb2fc;
+	background-position: 28px 28px;
+}
+nav ul li:nth-child(2) a {
+	background-color: #58ebd3;
+	background-position: 28px -96px;
+}
+nav ul li:nth-child(3) a {
+	background-color: #ffa659;
+	background-position: 28px -222px;
+}
+nav ul li:nth-child(4) a {
+	background-color: #ff7a85;
+	background-position: 28px -342px;
+}
+		
+nav ul li a span {
+	font: 50px "Dosis", sans-serif; text-transform: uppercase; 
+	position: absolute; left: 580px; top: 29px;
+	display: none;
+}
+nav ul li a:hover span {
+	display: block;
+}
+				
+nav ul li:nth-child(1) a span {
+	color: #5bb2fc;
+}
+nav ul li:nth-child(2) a span {
+	color: #58ebd3;
+}
+nav ul li:nth-child(3) a span {
+	color: #ffa659;
+}
+nav ul li:nth-child(4) a span {
+	color: #ff7a85;
+}
+
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Dosis Regular'), local('Dosis-Regular'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/xIAtSaglM8LZOYdGmG1JqQ.woff) format('woff');
+}
+*/
