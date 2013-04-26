@@ -1,0 +1,13 @@
+package productType.dao;
+
+import productType.dataset.ProductType;
+
+public interface ProductTypeDao {
+  ProductType add(ProductType producttype);
+
+	ProductType delete(ProductType producttype);
+
+	ProductType update(ProductType producttype);
+
+	ProductType check(ProductType producttype);
+}
