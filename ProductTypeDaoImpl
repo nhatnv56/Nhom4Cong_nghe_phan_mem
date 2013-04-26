@@ -1,0 +1,85 @@
+package productType.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import productType.dataset.ProductType;
+import user.dataset.User;
+import util.HibernateUtil;
+
+public class ProductTypeDaoImpl implements ProductTypeDao {
+  private List<ProductType> productTypelist;
+
+	public List<ProductType> getProductTypelist() {
+		findAll();
+		return this.productTypelist;
+	}
+
+	public void setProductTypelist(List<ProductType> productTypelist) {
+		this.productTypelist = productTypelist;
+	}
+
+	public void findAll() {
+		String queryString = "FROM Product_type ";
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		this.productTypelist = session.createQuery(queryString).list();
+		session.close();
+	}
+
+	@Override
+	public ProductType add(ProductType producttype) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(producttype);
+		session.getTransaction().commit();
+		session.close();
+		return producttype;
+	}
+
+	@Override
+	public ProductType delete(ProductType producttype) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.delete(producttype);
+		session.getTransaction().commit();
+		session.close();
+		return producttype;
+	}
+
+	@Override
+	public ProductType update(ProductType producttype) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		if (null != producttype) {
+			session.update(producttype);
+		}
+		session.getTransaction().commit();
+		session.close();
+		return producttype;
+	}
+
+	@Override
+	public ProductType check(ProductType producttype) {
+		// TODO Auto-generated method stub
+		if (producttype == null)
+			return null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		String queryString = "FROM Product_type WHERE type_id = :typeId AND type_name = :typeName";
+		Query query = session.createQuery(queryString);
+		query.setParameter("typeId", producttype.getTypeId());
+		query.setParameter("typeName", producttype.getTypeName());
+		ProductType res = (ProductType) query.uniqueResult();
+		session.close();
+		return res;
+	}
+
+	public int sizelist() {
+		return this.productTypelist.size();
+	}
+}
