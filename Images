@@ -1,0 +1,78 @@
+package image.action;
+
+import image.dao.ImageDao;
+import image.dao.ImageDaoImpl;
+import image.dataset.Image;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class Images extends ActionSupport {
+  private int imageId;
+	private String link;
+	private List<Image> imagelist;
+	private int size;
+
+	public int getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(int imageId) {
+		this.imageId = imageId;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public List<Image> getImagelist() {
+		return imagelist;
+	}
+
+	public void setImagelist() {
+		ImageDaoImpl list = new ImageDaoImpl();
+		this.imagelist = list.getImagelist();
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize() {
+		ImageDaoImpl list = new ImageDaoImpl();
+		this.size = list.sizelist();
+	}
+
+	public Images() {
+		this.imageId = 0;
+		this.link = "";
+		ImageDaoImpl list = new ImageDaoImpl();
+		this.imagelist = list.getImagelist();
+		this.size = list.sizelist();
+	}
+
+	public String checkLogin() {
+		ImageDao imageDao = new ImageDaoImpl();
+		if (imageId <= 0 || link == null) {
+			return "failure";
+		} else {
+			Image image = new Image(imageId, link);
+			if (imageDao.check(image) != null)
+				return "success";
+			else
+				return "failure";
+
+		}
+
+	}
+
+	public static void main(String[] args) {
+		Images a = new Images();
+		System.out.print("link: " + a.imagelist.get(0).getLink());
+	}
+}
