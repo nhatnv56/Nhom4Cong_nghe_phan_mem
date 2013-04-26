@@ -1,0 +1,13 @@
+package image.dao;
+
+import image.dataset.Image;
+
+public interface ImageDao {
+  Image add(Image image);
+
+	Image delete(Image image);
+
+	Image update(Image image);
+
+	Image check(Image image);
+}
