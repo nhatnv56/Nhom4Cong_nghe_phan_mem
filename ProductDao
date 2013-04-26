@@ -1,0 +1,13 @@
+package product.dao;
+
+import product.dataset.Product;
+
+public interface ProductDao {
+  Product add(Product product);
+
+	Product delete(Product product);
+
+	Product update(Product product);
+
+	Product check(Product product);
+}
