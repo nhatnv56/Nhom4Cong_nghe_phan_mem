@@ -1,0 +1,33 @@
+package image.dataset;
+
+public class Image {
+  private int imageId;
+	private String link;
+
+	public int getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(int imageId) {
+		this.imageId = imageId;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public Image(int imageId, String link) {
+		super();
+		this.imageId = imageId;
+		this.link = link;
+	}
+
+	public Image() {
+		this.imageId = 0;
+		this.link = "";
+	}
+}
