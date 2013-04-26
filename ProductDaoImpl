@@ -1,0 +1,87 @@
+package product.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import product.dataset.Product;
+import productType.dataset.ProductType;
+import util.HibernateUtil;
+
+public class ProductDaoImpl implements ProductDao {
+  private List<Product> productlist;
+
+	public List<Product> getProductlist() {
+		findAll();
+		return productlist;
+	}
+
+	public void findAll() {
+		String queryString = "FROM Product ";
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		this.productlist = session.createQuery(queryString).list();
+		session.close();
+	}
+
+	public void setProductlist(List<Product> productlist) {
+		this.productlist = productlist;
+	}
+
+	@Override
+	public Product add(Product product) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(product);
+		session.getTransaction().commit();
+		session.close();
+		return product;
+	}
+
+	@Override
+	public Product delete(Product product) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.delete(product);
+		session.getTransaction().commit();
+		session.close();
+		return product;
+	}
+
+	@Override
+	public Product update(Product product) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		if (null != product) {
+			session.update(product);
+		}
+		session.getTransaction().commit();
+		session.close();
+		return product;
+	}
+
+	@Override
+	public Product check(Product product) {
+		// TODO Auto-generated method stub
+		if (product == null)
+			return null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		String queryString = "FROM Product WHERE description = :description AND price = :price AND type_id =:typeId AND image_id =:imageID";
+		Query query = session.createQuery(queryString);
+		query.setParameter("description", product.getDescription());
+		query.setParameter("price", product.getPrice());
+		query.setParameter("typeId", product.getTypeId());
+		query.setParameter("imageId", product.getImageId());
+		Product res = (Product) query.uniqueResult();
+		session.close();
+		return res;
+	}
+
+	public int sizelist() {
+		return this.productlist.size();
+	}
+}
