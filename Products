@@ -1,0 +1,95 @@
+package product.action;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import product.dao.ProductDao;
+import product.dao.ProductDaoImpl;
+import product.dataset.Product;
+import productType.dao.ProductTypeDao;
+import productType.dao.ProductTypeDaoImpl;
+import productType.dataset.ProductType;
+
+public class Products extends ActionSupport{
+  private int size;
+	private String description;
+	private int price;
+	private int typeId;
+	private int imageId;
+	private List<Product> productlist;
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize() {
+		ProductDaoImpl list = new ProductDaoImpl();
+		this.size = list.sizelist();
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
+
+	public int getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(int imageId) {
+		this.imageId = imageId;
+	}
+
+	public List<Product> getProductlist() {
+		return productlist;
+	}
+
+	public void setProductlist() {
+		ProductDaoImpl list = new ProductDaoImpl();
+		this.productlist = list.getProductlist();
+	}
+
+	public String checkProducts() {
+		ProductDao productDao = new ProductDaoImpl();
+		if (typeId <= 0 || price <= 0 || imageId <= 0 || description == null) {
+			return "failure";
+		} else {
+			Product product=new Product(price,typeId,imageId,description);
+			if (productDao.check(product) != null)
+				return "success";
+			else
+				return "failure";
+		}
+
+	}
+
+	public Products() {
+		ProductDaoImpl pr = new ProductDaoImpl();
+		this.productlist = pr.getProductlist();
+		this.size = pr.sizelist();
+		this.imageId = 0;
+		this.price = 0;
+		this.description = "";
+	}
+
+}
