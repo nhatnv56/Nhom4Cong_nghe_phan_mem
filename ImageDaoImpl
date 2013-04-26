@@ -1,0 +1,88 @@
+package image.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import productType.dataset.ProductType;
+
+import util.HibernateUtil;
+
+import image.dataset.Image;
+
+public class ImageDaoImpl implements ImageDao {
+  private List<Image> imagelist;
+
+	public List<Image> getImagelist() {
+		findAll();
+		return imagelist;
+	}
+
+	public void setImagelist(List<Image> imagelist) {
+		this.imagelist = imagelist;
+	}
+
+	public void findAll() {
+		String queryString = "FROM Image ";
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		this.imagelist = session.createQuery(queryString).list();
+		session.close();
+	}
+
+	@Override
+	public Image add(Image image) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(image);
+		session.getTransaction().commit();
+		session.close();
+		return image;
+
+	}
+
+	@Override
+	public Image delete(Image image) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.delete(image);
+		session.getTransaction().commit();
+		session.close();
+		return image;
+	}
+
+	@Override
+	public Image update(Image image) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		if (null != image) {
+			session.update(image);
+		}
+		session.getTransaction().commit();
+		session.close();
+		return image;
+	}
+
+	@Override
+	public Image check(Image image) {
+		// TODO Auto-generated method stub
+		if (image == null)
+			return null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		String queryString = "FROM Image WHERE image_id = :imageId AND link = :link";
+		Query query = session.createQuery(queryString);
+		query.setParameter("imageId", image.getImageId());
+		query.setParameter("link", image.getLink());
+		Image res = (Image) query.uniqueResult();
+		session.close();
+		return res;
+	}
+
+	public int sizelist() {
+		return this.imagelist.size();
+	}
+}
