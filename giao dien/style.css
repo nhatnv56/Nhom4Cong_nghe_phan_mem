@@ -4,27 +4,59 @@ body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldse
 
 body {
 	background: #313145;
+	width: 2000px;
 }
-#demo {
+#header {
 	width: 100%;
-	margin: 0 auto;
+	height: 110px;
+	margin: 20px 0 0 0;
 }
-#mtopleft {
+#div260w120h {
 	display: block;
-	width: 220px; height: 100px;
+	width: 240px; height: 110px;
 	background-color: #000;
 	float: left;
-	margin: 10px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+#topright{
+	width: 380px;
+	height: 110px;
+	float: left;
+	margin: 0px 0px 0px 0px;
+}
+.toprightchild{
+	width:95px;
+	height: 110px;
+	float: left;
+	margin-left: 0px;
+	background-repeat: no-repeat;
+}
+.toprightchild:nth-child(1){
+	background-image: url(images/one/facebook_icon.png);
+	background-position: 15px 23px;
+}
+.toprightchild:nth-child(2){
+	background-image: url(images/one/twitter-icon.png);
+	background-position: 15px 23px;
+}
+.toprightchild:nth-child(3){
+	background-image: url(images/one/linkedin-icon.png);
+	background-position: 15px 23px;
+}
+.toprightchild:nth-child(4){
+	background-image: url(images/one/Google-Plus-icon.png);
+	background-position: 15px 23px;
 }
 nav ul {
 	list-style: none; overflow: hidden; position: relative;
 }
 nav ul li {
-	float: left; margin: 10px 0px 0px 10px;
+	float: left; margin: 0px 0px 0px 10px;
 }
 nav ul li a {
-	display: block; width: 100px; height: 100px;
+	display: block; width: 110px; height: 110px;
 	background-image: url(images/one/icons.png); background-repeat: no-repeat;
+	background-color: #5bb2fc;
 }
 nav ul li a:hover{
 	opacity: 0.8;
@@ -41,30 +73,30 @@ background:#0000ff;
 */
 nav ul li:nth-child(2) a {
 	background-color: #5bb2fc;
-	background-position: 18px 18px;
+	background-position: 23px 23px;
 }
 nav ul li:nth-child(3) a {
 	background-image: url(images/one/info-5-64.png);
 	background-color: #58ebd3;
-	background-position: 18px 18px;
+	background-position: 23px 23px;
 }
 nav ul li:nth-child(4) a {
 	background-color: #ffa659;
-	background-position: 18px -230px;
+	background-position: 23px -225px;
 }
 nav ul li:nth-child(5) a {
 	background-color: #ff7a85;
-	background-position: 18px -352px;
+	background-position: 23px -347px;
 }
 nav ul li:nth-child(6) a {
 	background-image: url(images/one/map-marker-33-64.png);
 	background-color: #5bb2fc;
-	background-position: 18px 18px;
+	background-position: 23px 23px;
 }
 nav ul li:nth-child(7) a {
 	background-image: url(images/one/key-17-64.png);
 	background-color: #58ebd3;
-	background-position: 18px 18px;
+	background-position: 23px 23px;
 }
 nav ul li a span {
 	font: 40px "Dosis", sans-serif; text-transform: uppercase; 
@@ -104,7 +136,7 @@ nav ul li:nth-child(7) a span {
 	color: #58ebd3;
 }
 #mybody{
-	display: block;
+	/*display: block;*/
 	width: 100%;
 	min-height: 540px;
 	/*background: #191919; /* url(images/img.jpg);*/
@@ -115,8 +147,7 @@ a{
 	display: block;
 }
 a img{
-	height: 210px;
-	width: 210px;
+	width: 230px;
 }
 #anchu{
 	font: 30px "Dosis", sans-serif; text-transform: uppercase; 
@@ -134,10 +165,12 @@ a img{
 .sanpham{
 	position: relative;
 	float: left;
-	width: 210px;
-	height: 210px;
+	width: 230px;
+	height: 110px;
 	background-color: #272737;
 	margin: 0px 0px 10px 10px;
+	overflow: hidden;
+	background-position: 100% 50%, bottom center;
 }
 .sanpham:hover{
 	opacity: 0.8;
@@ -148,20 +181,27 @@ a:hover #anchu{
 .danhmuc{
 	position: relative;
 	float: left;
-	width: 210px;
-	min-height: 540px;
+	width: 240px;
+	min-height: 470px;
 	color: #000;
-	margin: 0px 0px 0px 10px;
+	margin: 0px 0px 0px 0px;
 }
 .danhmuccon{
-	margin-bottom: 10px;
 }
 .danhmuccon a {
 	text-decoration: none;
-	display: block; width: 210px; height: 100px;
+	display: block; width: 110px; height: 110px;
 	background-repeat: no-repeat;
-	background-position: 73px 15px;
 	background-color: #5bb2fc;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	background-position: 23px 23px;
+}
+.danhmuccon a:nth-of-type(2n+1) {
+	float: left;
+}
+.danhmuccon a:nth-of-type(2n){
+	float: right;
 }
 .danhmuccon a:hover #anchu{
 	position: inherit;
@@ -173,6 +213,7 @@ a:hover #anchu{
 }
 .danhmuccon:nth-child(2) a{
 	background-image: url(images/one/tablet-5-64.png);
+	background-position: 23px 25px;
 }
 .danhmuccon:nth-child(3) a{
 	background-image: url(images/one/mobile-phone-6-64.png);
@@ -184,6 +225,12 @@ a:hover #anchu{
 	background-image: url(images/one/laptop-4-64.png);
 }
 .danhmuccon:nth-child(6) a{
+	background-image: url(images/one/megaphone-3-64.png);
+}
+.danhmuccon:nth-child(7) a{
+	background-image: url(images/one/megaphone-3-64.png);
+}
+.danhmuccon:nth-child(8) a{
 	background-image: url(images/one/megaphone-3-64.png);
 }
 @font-face {
